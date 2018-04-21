@@ -1,0 +1,51 @@
+IDSwakeup
+Stephane Aubert <Stephane.Aubert@hsc.fr>
+
+
+IDSwakeup is a  collection of tools  that allows to test  network intrusion
+detection systems.
+
+The main  goal of  IDSwakeup is  to generate false  attack that  mimic well
+known  ones, in  order to  see  if NIDS  detects them  and generates  false
+positives.
+
+Like  nidsbench  (http://www.anzen.com/research/nidsbench/),  IDSwakeup  is
+being published in the hopes that  a more precise testing methodology might
+be applied  to network intrusion detection, which is *still* a black art at
+best.
+
+This release of IDSwakeup includes:
+
+  . IDSwakeup
+
+    The main  shell script that permits  to launch hping2 or  iwu. The user
+    just has  to choose which  attack or set of attacks  he or she  want to
+    mimic. The user  can also fix the  ttl to produce short  ttl and impact
+    only NIDS and not the servers.
+
+    Usage: ./IDSwakeup <src addr> <dst addr> [nb] [ttl]
+
+    IDSwakeup needs hping2 (http://www.kyuzz.org/antirez/hping/).
+
+  . iwu
+
+    Send a  buffer as a datagram.  It allows to change  the source address,
+    the destination  address, the ttl (in  order to produce short  TTL). It
+    also takes as parameter  the number of times the user wants to send the
+    same datagram.
+
+    Usage: ./iwu <srcIP>  <dstIP>  <nb> <ttl> <ip-datagram>
+
+    Example: ./iwu 10.0.0.1 20.0.0.2 200  4  \
+             "4500 0018 00f2 0003 4011 73db 0101 0101 0202 0202 e63e 4494"
+
+    iwu needs libnet 1.x (http://www.packetfactory.net/Projects/Libnet/).
+
+
+IDSwakeup suite is written  by Stephane Aubert <Stephane.Aubert@hsc.fr>, it
+is available in a beta version and published under a BSD-style license.
+
+The IDSwakeup primary download site is the following:
+    http://www.hsc.fr/ressources/outils/
+
+
